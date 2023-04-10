@@ -1,6 +1,6 @@
-import { boot } from 'quasar/wrappers'
-import VuePlugin from 'quasar-ui-qcascader'
+import { boot } from 'quasar/wrappers';
+import VuePlugin from '@660e/quasar-ui-qcascader';
 
 export default boot(({ app }) => {
-  app.use(VuePlugin)
-})
+  app.use(VuePlugin);
+});

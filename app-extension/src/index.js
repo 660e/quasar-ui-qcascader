@@ -8,13 +8,13 @@
 
 function extendConf (conf) {
   // register our boot file
-  conf.boot.push('~quasar-app-extension-qcascader/src/boot/register.js')
+  conf.boot.push('~@660e/quasar-app-extension-qcascader/src/boot/register.js')
 
   // make sure app extension files & ui package gets transpiled
-  conf.build.transpileDependencies.push(/quasar-app-extension-qcascader[\\/]src/)
+  conf.build.transpileDependencies.push(/@660e/quasar-app-extension-qcascader[\\/]src/)
 
   // make sure the stylesheet goes through webpack to avoid SSR issues
-  conf.css.push('~quasar-ui-qcascader/src/index.sass')
+  conf.css.push('~@660e/quasar-ui-qcascader/src/index.sass')
 }
 
 module.exports = function (api) {
@@ -32,7 +32,7 @@ module.exports = function (api) {
 
 
   // Uncomment the line below if you provide a JSON API for your component
-  // api.registerDescribeApi('QCascader', '~quasar-ui-qcascader/src/components/QCascader.json')
+  // api.registerDescribeApi('QCascader', '~@660e/quasar-ui-qcascader/src/components/QCascader.json')
 
 
   // We extend /quasar.conf.js

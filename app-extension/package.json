@@ -1,5 +1,5 @@
 {
-  "name": "quasar-app-extension-qcascader",
+  "name": "@660e/quasar-app-extension-qcascader",
   "version": "0.0.1",
   "description": "A Quasar App Extension",
   "author": "660e",
@@ -12,7 +12,7 @@
   "bugs": "",
   "homepage": "",
   "dependencies": {
-    "quasar-ui-qcascader": "latest"
+    "@660e/quasar-ui-qcascader": "latest"
   },
   "engines": {
     "node": ">= 8.9.0",
