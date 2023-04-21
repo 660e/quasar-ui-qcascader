@@ -1,5 +1,5 @@
 import { h } from 'vue';
-import { QItem, QItemSection, QList, QSelect } from 'quasar';
+import { QIcon, QItem, QItemSection, QList, QSelect } from 'quasar';
 
 export default {
   name: 'q-cascader',
@@ -14,22 +14,32 @@ export default {
     }
 
     function renderList() {
-      return h(QList, null, { default: renderItem() });
+      return h(QList, null, () => renderItem());
     }
 
     function renderItem() {
-      return () => h(QItem, null, { default: renderItemSection() });
+      return h(QItem, { clickable: true }, () => renderItemSection());
     }
 
     function renderItemSection() {
-      return () => h(QItemSection, null, () => 'option');
+      return [h(QItemSection, null, () => 'option'), renderArrow()];
+    }
+
+    function renderArrow() {
+      return h(QItemSection, { side: true }, () => h(QIcon, { name: 'keyboard_arrow_right' }));
     }
 
     return () => {
-      const cascader = h(QSelect, null, {
-        'before-options': () => renderContainer(),
-        'option': () => h('div')
-      });
+      const cascader = h(
+        QSelect,
+        {
+          'popup-content-class': 'q-cascader'
+        },
+        {
+          'before-options': () => renderContainer(),
+          'option': () => h('div')
+        }
+      );
 
       return cascader;
     };
