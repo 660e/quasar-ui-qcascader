@@ -1,5 +1,5 @@
-import { h } from 'vue';
-import { QIcon, QItem, QItemSection, QList, QSelect } from 'quasar';
+import { h, withDirectives } from 'vue';
+import { ClosePopup, QIcon, QItem, QItemSection, QList, QSelect } from 'quasar';
 
 export default {
   name: 'q-cascader',
@@ -14,27 +14,27 @@ export default {
     }
 
     function renderItem(option) {
-      const expandable = option.children && option.children.length;
-      const content = [h(QItemSection, null, () => option.label)];
+      const expandable = Boolean(option.children && option.children.length);
 
-      if (expandable) {
-        content.push(h(QItemSection, { side: true }, () => h(QIcon, { name: 'keyboard_arrow_right' })));
-      }
-
-      const item = h(
-        QItem,
-        {
-          clickable: true,
-          onClick: () => {
-            if (expandable) {
-              console.log(option.children.length);
-            } else {
-              console.log(option);
-              emit('update:model-value', option);
+      const item = withDirectives(
+        h(
+          QItem,
+          {
+            clickable: true,
+            onClick: () => {
+              if (expandable) {
+                console.log(option.children);
+              } else {
+                emit('update:model-value', option);
+              }
             }
-          }
-        },
-        () => content
+          },
+          () => [
+            h(QItemSection, null, () => option.label),
+            expandable && h(QItemSection, { side: true }, () => h(QIcon, { name: 'keyboard_arrow_right' }))
+          ]
+        ),
+        [[expandable || ClosePopup]]
       );
 
       return item;
