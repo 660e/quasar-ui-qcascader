@@ -1,12 +1,20 @@
-import { h, withDirectives } from 'vue';
-import { ClosePopup, QIcon, QItem, QItemSection, QList, QSelect } from 'quasar';
+import { h, reactive, withDirectives } from 'vue';
+import { ClosePopup, QIcon, QItem, QItemSection, QList, QSelect, QSeparator } from 'quasar';
 
 export default {
   name: 'q-cascader',
 
   setup(props, { attrs, emit }) {
+    const lists = reactive([attrs.options]);
+
     function renderContainer() {
-      return h('div', { class: 'flex' }, renderList(attrs.options));
+      return h(
+        'div',
+        {
+          class: 'flex'
+        },
+        lists.map((list, index) => [index !== 0 && h(QSeparator, { vertical: true }), renderList(list)])
+      );
     }
 
     function renderList(options) {
@@ -23,7 +31,7 @@ export default {
             clickable: true,
             onClick: () => {
               if (expandable) {
-                console.log(option.children);
+                lists.push(option.children);
               } else {
                 emit('update:model-value', option);
               }
@@ -34,7 +42,7 @@ export default {
             expandable && h(QItemSection, { side: true }, () => h(QIcon, { name: 'keyboard_arrow_right' }))
           ]
         ),
-        [[expandable || ClosePopup]]
+        [[!expandable && ClosePopup]]
       );
 
       return item;
