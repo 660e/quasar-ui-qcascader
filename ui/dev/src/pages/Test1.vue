@@ -3,8 +3,17 @@ import { ref } from 'vue';
 
 const model = ref();
 const options = ref([
-  { id: 1, label: 'node-1' },
-  { id: 2, label: 'node-2' },
+  { id: 1, label: 'node-1', children: [] },
+  {
+    id: 2,
+    label: 'node-2',
+    children: [
+      { id: 21, label: 'node-2-1' },
+      { id: 22, label: 'node-2-2' },
+      { id: 23, label: 'node-2-3' },
+      { id: 24, label: 'node-2-4' }
+    ]
+  },
   {
     id: 3,
     label: 'node-3',

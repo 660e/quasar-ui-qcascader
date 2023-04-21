@@ -5,24 +5,20 @@ export default {
   name: 'q-cascader',
 
   setup(props, { attrs }) {
-    console.log(attrs.options);
-
-    const options = attrs.options;
-
     function renderContainer() {
-      return h('div', { class: 'flex' }, renderList());
+      return h('div', { class: 'flex' }, renderList(attrs.options));
     }
 
-    function renderList() {
-      return h(QList, null, () => renderItem());
+    function renderList(options) {
+      return h(QList, null, () => options.map(option => renderItem(option)));
     }
 
-    function renderItem() {
-      return h(QItem, { clickable: true }, () => renderItemSection());
+    function renderItem(option) {
+      return h(QItem, { clickable: true }, () => renderItemSection(option));
     }
 
-    function renderItemSection() {
-      return [h(QItemSection, null, () => 'option'), renderArrow()];
+    function renderItemSection(option) {
+      return [h(QItemSection, null, () => option.label), option.children && option.children.length ? renderArrow() : null];
     }
 
     function renderArrow() {
