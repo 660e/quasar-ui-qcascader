@@ -14,15 +14,22 @@ export default {
     }
 
     function renderItem(option) {
-      return h(QItem, { clickable: true }, () => renderItemSection(option));
-    }
+      const content = [h(QItemSection, null, () => option.label)];
 
-    function renderItemSection(option) {
-      return [h(QItemSection, null, () => option.label), option.children && option.children.length ? renderArrow() : null];
-    }
+      if (option.children && option.children.length) {
+        content.push(h(QItemSection, { side: true }, () => h(QIcon, { name: 'keyboard_arrow_right' })));
+      }
 
-    function renderArrow() {
-      return h(QItemSection, { side: true }, () => h(QIcon, { name: 'keyboard_arrow_right' }));
+      const item = h(
+        QItem,
+        {
+          clickable: true,
+          onClick: () => console.log(option.id)
+        },
+        () => content
+      );
+
+      return item;
     }
 
     return () => {

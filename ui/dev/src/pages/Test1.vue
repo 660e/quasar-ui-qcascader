@@ -36,6 +36,6 @@ const options = ref([
 
 <template>
   <q-page padding>
-    <q-cascader v-model="model" :options="options" label="Outlined" dense outlined />
+    <q-cascader v-model="model" :options="options" label="Outlined" outlined />
   </q-page>
 </template>
