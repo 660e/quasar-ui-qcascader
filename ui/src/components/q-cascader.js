@@ -1,5 +1,6 @@
 import { h, reactive, withDirectives } from 'vue';
 import { ClosePopup, QIcon, QItem, QItemSection, QList, QSelect, QSeparator } from 'quasar';
+import { depth } from '../utils.js';
 
 export default {
   name: 'q-cascader',
@@ -31,6 +32,7 @@ export default {
             clickable: true,
             onClick: () => {
               if (expandable) {
+                console.log(depth(attrs.options, option.id));
                 lists.push(option.children);
               } else {
                 emit('update:model-value', option);
