@@ -15,3 +15,9 @@ export function depth(options, id) {
 
   return depth;
 }
+
+export function flatten(tree) {
+  return tree.reduce((accumulator, current) => {
+    return [...accumulator, current, ...flatten(current.children || [])];
+  }, []);
+}
