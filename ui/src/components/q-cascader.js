@@ -2,8 +2,16 @@ import { h, nextTick, reactive, withDirectives } from 'vue';
 import { ClosePopup, QIcon, QItem, QItemSection, QList, QSelect } from 'quasar';
 import { depth } from '../utils.js';
 
+const useCascaderProps = {
+  optionsDense: Boolean
+};
+
 export default {
   name: 'q-cascader',
+
+  props: {
+    ...useCascaderProps
+  },
 
   setup(props, { attrs, emit }) {
     const lists = reactive([attrs.options]);
@@ -17,7 +25,7 @@ export default {
     }
 
     function renderList(list) {
-      return h(QList, null, () => list.map(item => renderItem(item)));
+      return h(QList, { dense: props.optionsDense }, () => list.map(item => renderItem(item)));
     }
 
     function renderItem(item) {
