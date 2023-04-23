@@ -1,5 +1,5 @@
 import { h, nextTick, reactive, withDirectives } from 'vue';
-import { ClosePopup, QIcon, QItem, QItemSection, QList, QSelect } from 'quasar';
+import { ClosePopup, QIcon, QItem, QItemSection, QList, QSelect, QSeparator } from 'quasar';
 import { findDepth } from '../utils.js';
 
 const useCascaderProps = {
@@ -21,7 +21,7 @@ export default {
       return h(
         'div',
         { class: 'flex' },
-        lists.map(list => renderList(list))
+        lists.map((list, index) => [index !== 0 && h(QSeparator, { vertical: true }), renderList(list)])
       );
     }
 
