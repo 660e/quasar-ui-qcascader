@@ -1,6 +1,6 @@
 import { h, nextTick, reactive, withDirectives } from 'vue';
 import { ClosePopup, QIcon, QItem, QItemSection, QList, QSelect } from 'quasar';
-import { depth } from '../utils.js';
+import { findDepth } from '../utils.js';
 
 const useCascaderProps = {
   optionsDense: Boolean
@@ -15,6 +15,7 @@ export default {
 
   setup(props, { attrs, emit }) {
     const lists = reactive([attrs.options]);
+    const actives = reactive([]);
 
     function renderOptions() {
       return h(
@@ -35,10 +36,16 @@ export default {
         h(
           QItem,
           {
+            active: actives.includes(item.id),
             clickable: true,
             onClick: () => {
+              const depth = findDepth(attrs.options, item.id);
+
+              lists.splice(depth + 1);
+              actives.splice(depth);
+              nextTick(() => actives.push(item.id));
+
               if (expandable) {
-                lists.splice(depth(attrs.options, item.id) + 1);
                 nextTick(() => lists.push(item.children));
               } else {
                 emit('update:model-value', item);
@@ -47,7 +54,7 @@ export default {
           },
           () => [
             h(QItemSection, null, () => item.label),
-            expandable && h(QItemSection, { side: true }, () => h(QIcon, { name: 'keyboard_arrow_right' }))
+            expandable && h(QItemSection, { avatar: true }, () => h(QIcon, { name: 'keyboard_arrow_right' }))
           ]
         ),
         [[!expandable && ClosePopup]]

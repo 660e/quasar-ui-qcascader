@@ -1,4 +1,4 @@
-export function depth(tree, id) {
+export function findDepth(tree, id) {
   let depth = 0;
 
   function find(tree, id, current) {
