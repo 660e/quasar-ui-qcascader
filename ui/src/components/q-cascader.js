@@ -1,10 +1,27 @@
 import { h, nextTick, reactive, withDirectives } from 'vue';
 import { ClosePopup, QIcon, QItem, QItemSection, QList, QSelect, QSeparator } from 'quasar';
-import { findDepth } from '../utils.js';
 
 const useCascaderProps = {
   optionsDense: Boolean
 };
+
+function findDepth(tree, id) {
+  let depth = 0;
+
+  function find(tree, id, current) {
+    tree.forEach(e => {
+      if (e.id === id) {
+        depth = current;
+      } else if (e.children) {
+        find(e.children, id, current + 1);
+      }
+    });
+  }
+
+  find(tree, id, depth);
+
+  return depth;
+}
 
 export default {
   name: 'q-cascader',
