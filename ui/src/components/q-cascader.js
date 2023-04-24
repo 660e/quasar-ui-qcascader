@@ -5,22 +5,34 @@ const useCascaderProps = {
   optionsDense: Boolean
 };
 
-function findDepth(tree, id) {
-  let depth = 0;
-
-  function find(tree, id, current) {
-    tree.forEach(e => {
-      if (e.id === id) {
-        depth = current;
-      } else if (e.children) {
-        find(e.children, id, current + 1);
+function findPath(tree, targetId) {
+  for (let node of tree) {
+    if (node.id === targetId) {
+      return [node.id];
+    }
+    if (node.children) {
+      const path = findPath(node.children, targetId);
+      if (path) {
+        return [node.id, ...path];
       }
-    });
+    }
   }
+  return null;
+}
 
-  find(tree, id, depth);
-
-  return depth;
+function findDepth(tree, targetId, depth = 0) {
+  for (let node of tree) {
+    if (node.id === targetId) {
+      return depth;
+    }
+    if (node.children) {
+      const childDepth = findDepth(node.children, targetId, depth + 1);
+      if (childDepth !== -1) {
+        return childDepth;
+      }
+    }
+  }
+  return -1;
 }
 
 export default {
@@ -33,6 +45,15 @@ export default {
   setup(props, { attrs, emit }) {
     const lists = reactive([attrs.options]);
     const actives = reactive([]);
+
+    function onPopupShow() {
+      if (attrs.modelValue === undefined || attrs.modelValue === null) {
+        lists.splice(1);
+        actives.splice(0);
+      } else {
+        console.log(findPath(attrs.options, attrs.modelValue.id));
+      }
+    }
 
     function renderOptions() {
       return h(
@@ -81,7 +102,10 @@ export default {
     return () => {
       return h(
         QSelect,
-        { 'popup-content-class': 'q-cascader' },
+        {
+          onPopupShow,
+          'popup-content-class': 'q-cascader'
+        },
         {
           'before-options': () => renderOptions(),
           'option': () => h('div')
