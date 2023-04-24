@@ -6,33 +6,39 @@ const useCascaderProps = {
 };
 
 function findPath(tree, targetId) {
-  for (let node of tree) {
+  let result;
+
+  tree.forEach(node => {
     if (node.id === targetId) {
-      return [node.id];
+      result = [node.id];
     }
     if (node.children) {
       const path = findPath(node.children, targetId);
       if (path) {
-        return [node.id, ...path];
+        result = [node.id, ...path];
       }
     }
-  }
-  return null;
+  });
+
+  return result;
 }
 
 function findDepth(tree, targetId, depth = 0) {
-  for (let node of tree) {
+  let result = -1;
+
+  tree.forEach(node => {
     if (node.id === targetId) {
-      return depth;
+      result = depth;
     }
     if (node.children) {
       const childDepth = findDepth(node.children, targetId, depth + 1);
       if (childDepth !== -1) {
-        return childDepth;
+        result = childDepth;
       }
     }
-  }
-  return -1;
+  });
+
+  return result;
 }
 
 function flattenTree(tree) {
