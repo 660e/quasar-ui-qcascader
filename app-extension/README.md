@@ -1,6 +1,4 @@
-# Quasar App Extension qcascader
-
-> Add a short description of your App Extension. What does it do? How is it beneficial? Why would someone want to use it?
+# Quasar App Extension QCascader
 
 [![npm](https://img.shields.io/npm/v/@660e/quasar-app-extension-qcascader.svg?label=@660e/quasar-app-extension-qcascader)](https://www.npmjs.com/package/@660e/quasar-app-extension-qcascader)
 [![npm](https://img.shields.io/npm/dt/@660e/quasar-app-extension-qcascader.svg)](https://www.npmjs.com/package/@660e/quasar-app-extension-qcascader)
@@ -8,28 +6,16 @@
 # Install
 
 ```bash
-quasar ext add qcascader
+quasar ext add @660e/qcascader
 ```
 
 Quasar CLI will retrieve it from NPM and install the extension.
 
-## Prompts
-
-> If your app extension uses prompts, explain them here, otherwise remove this section and remove prompts.js file.
-
 # Uninstall
 
 ```bash
-quasar ext remove qcascader
+quasar ext remove @660e/qcascader
 ```
-
-# Info
-
-> Add longer information here that will help the user of your app extension.
-
-# Other Info
-
-> Add other information that's not as important to know
 
 # Donate
 
