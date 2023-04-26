@@ -1,6 +1,6 @@
 {
   "name": "@660e/quasar-app-extension-qcascader",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A Quasar App Extension",
   "author": "660e",
   "license": "MIT",
@@ -11,8 +11,17 @@
   },
   "bugs": "",
   "homepage": "https://github.com/660e/quasar-ui-qcascader",
+  "keywords": [
+    "quasar",
+    "quasarframework",
+    "app",
+    "app extension",
+    "extension",
+    "qcascader",
+    "cascader"
+  ],
   "dependencies": {
-    "@660e/quasar-ui-qcascader": "^0.0.4"
+    "@660e/quasar-ui-qcascader": "^0.0.5"
   },
   "engines": {
     "node": ">= 8.9.0",

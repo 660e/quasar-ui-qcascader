@@ -1,6 +1,6 @@
 {
   "name": "@660e/quasar-ui-qcascader",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "660e",
   "description": "My awesome component",
   "license": "MIT",
@@ -23,6 +23,12 @@
   },
   "bugs": "",
   "homepage": "https://github.com/660e/quasar-ui-qcascader",
+  "keywords": [
+    "quasar",
+    "quasarframework",
+    "qcascader",
+    "cascader"
+  ],
   "devDependencies": {
     "autoprefixer": "^10.0.2",
     "cssnano": "^4.1.10",
