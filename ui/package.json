@@ -19,10 +19,10 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/660e/quasar-ui-qcascader.git"
   },
   "bugs": "",
-  "homepage": "",
+  "homepage": "https://github.com/660e/quasar-ui-qcascader",
   "devDependencies": {
     "autoprefixer": "^10.0.2",
     "cssnano": "^4.1.10",

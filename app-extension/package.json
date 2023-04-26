@@ -7,10 +7,10 @@
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/660e/quasar-ui-qcascader.git"
   },
   "bugs": "",
-  "homepage": "",
+  "homepage": "https://github.com/660e/quasar-ui-qcascader",
   "dependencies": {
     "@660e/quasar-ui-qcascader": "^0.0.4"
   },
