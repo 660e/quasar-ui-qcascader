@@ -9,10 +9,6 @@ Compatible with Quasar UI v2 and Vue 3.
 
 - [/app-extension](app-extension) - Quasar app extension
 
-# Donate
-
-If you appreciate the work that went into this project, please consider [donating to Quasar](https://donate.quasar.dev).
-
 # License
 
 MIT (c) 660e

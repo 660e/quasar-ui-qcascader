@@ -17,10 +17,6 @@ Quasar CLI will retrieve it from NPM and install the extension.
 quasar ext remove @660e/qcascader
 ```
 
-# Donate
-
-If you appreciate the work that went into this App Extension, please consider [donating to Quasar](https://donate.quasar.dev).
-
 # License
 
 MIT (c) 660e

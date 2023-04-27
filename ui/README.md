@@ -9,7 +9,7 @@
 
 ## Quasar CLI project
 
-Install the [App Extension](../app-extension).
+Install the [App Extension](https://github.com/660e/quasar-ui-qcascader/tree/main/app-extension).
 
 **OR**:
 
@@ -121,10 +121,6 @@ $ yarn dev:electron
 ```bash
 $ yarn build
 ```
-
-# Donate
-
-If you appreciate the work that went into this, please consider [donating to Quasar](https://donate.quasar.dev).
 
 # License
 
