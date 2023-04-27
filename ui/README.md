@@ -5,6 +5,8 @@
 
 **Compatible with Quasar UI v2 and Vue 3**.
 
+![QCascader](https://660e.github.io/assets/qcascader.png)
+
 # Example
 
 ```vue

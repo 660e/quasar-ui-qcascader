@@ -3,6 +3,8 @@
 [![npm](https://img.shields.io/npm/v/@660e/quasar-app-extension-qcascader.svg?label=@660e/quasar-app-extension-qcascader)](https://www.npmjs.com/package/@660e/quasar-app-extension-qcascader)
 [![npm](https://img.shields.io/npm/dt/@660e/quasar-app-extension-qcascader.svg)](https://www.npmjs.com/package/@660e/quasar-app-extension-qcascader)
 
+![QCascader](https://660e.github.io/assets/qcascader.png)
+
 # Example
 
 ```vue
